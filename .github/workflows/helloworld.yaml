@@ -2,7 +2,7 @@ name : Hello world actions
 on: [push]
 
 jobs: 
-  say_hello:
+  say_hello:    # This is the job name, which you will see in github
     runs-on: ubuntu-latest
     steps: 
       - name : My First actions
