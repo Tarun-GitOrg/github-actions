@@ -1,0 +1,16 @@
+name: context
+on: [push]
+env: 
+   name: Tarunteja
+   actor: MaheshBabu
+   cricketer: MSD
+jobs: 
+ context-sample: 
+   runs-on: ubuntu-latest
+   steps: 
+     - name: Printing default variables provided by github
+       run: |
+             echo "${{tojson(github)}}"
+             echo "${{github.ref_name}}"
+             echo "Name is $name and his fav actor is $actor and fav cricketer is $cricketer"
+   
