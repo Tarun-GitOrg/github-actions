@@ -1,0 +1,10 @@
+name: Learning Triggers
+on: workflow_dispatch
+
+jobs: 
+  my-trigger:
+    runs-on: ubuntu-latest
+    steps: 
+     - name: Understand Triggers
+       run: echo "Understanding Triggers"
+      
