@@ -1,0 +1,14 @@
+name: Practise-conditions
+on: [push]
+
+jobs: 
+ learn-condition:
+  runs-on: ubuntu-latest
+  steps: 
+  - name: check main branch 
+    if: github.ref_name == 'main'
+    run: "This is a main branch"
+  
+  - name: check feature branch    # since we are pushing the code to main brach this should not run
+    if: github.ref_name == 'feature'
+    run: "This is a feature branch"
