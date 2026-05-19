@@ -3,13 +3,12 @@ name: Learning Triggers
 on:
   push:
     branches:
-      - feature
-
+      # - feature
+       - main
 jobs: 
   my-trigger:
     runs-on: ubuntu-latest
     steps: 
      - name: Understand Triggers
-      #  run: echo "Understanding Triggers"
-       run: echo "push to feature branch"
+       run: echo "push to main branch"
       
