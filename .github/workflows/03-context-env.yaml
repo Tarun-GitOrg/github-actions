@@ -41,4 +41,4 @@ jobs:
   runs-on: ubuntu-latest
   steps: 
    - name: Printing the outputs store by the context-sample job
-     run: echo "Fav movie is ${{ needs.context-sample.favs.outputs.movie }}"
+     run: echo "Fav movie is ${{ needs.context-sample.outputs.movie }}"
