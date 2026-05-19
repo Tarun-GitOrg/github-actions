@@ -21,14 +21,14 @@ jobs:
      
      - name: Printing favourites stored as outputs
        run: |
-         echo "$name favourite movie is ${{ steps.fav.outputs.movie }}"
-         echo "and favourite character is ${{ steps.fav.outputs.character }}"
+         echo "$name favourite movie is ${{ steps.favs.outputs.movie }}"
+         echo "and favourite character is ${{ steps.favs.outputs.character }}"
      
      - name: Few more favourites 
-       run: echo "movie1=pokiri" >> $GITHUB_ENV
+       run: |
+            echo "movie1=pokiri" >> $GITHUB_ENV
             echo "character1=pandu gadu and Ramana gadu" >> $GITHUB_ENV
 
      - name: Printing favs stored as dynamic variables
-       run:
-         echo "one more fav movie is $movie1 and few more fav characters are $character1"
+       run: echo "one more fav movie is $movie1 and few more fav characters are $character1"
    
