@@ -4,9 +4,13 @@ env:
    name: Tarunteja
    actor: MaheshBabu
    cricketer: MSD
+
 jobs: 
  context-sample: 
    runs-on: ubuntu-latest
+   outputs: 
+     movie: ${{ steps.favs.outputs.movie }}
+     character: ${{ steps.favs.outputs.character }}
    steps: 
      - name: Printing default variables provided by github
        run: |
@@ -14,17 +18,17 @@ jobs:
              echo "Name is $name and his fav actor is $actor and fav cricketer is $cricketer"
      
      - name: Favourite movie and characters
-       id: favs      #id is mandatory to store the outputs and use them in later steps
+       id: favs      #id is mandatory to store the outputs and use them in later steps and other jobs then we will go for outputs
        run: |
-         echo "movie=1-Nenokkadine" >> $GITHUB_OUTPUT
+         echo "movie=1-Nenokkadine" >> $GITHUB_OUTPUT    
          echo "character=seetaramaraju" >> $GITHUB_OUTPUT
      
-     - name: Printing favourites stored as outputs
+     - name: Printing favourites stored as outputs  
        run: |
          echo "$name favourite movie is ${{ steps.favs.outputs.movie }}"
          echo "and favourite character is ${{ steps.favs.outputs.character }}"
      
-     - name: Few more favourites 
+     - name: Few more favourites  # if we want to use vars within the job then we can go for dynamic env
        run: |
             echo "movie1=pokiri" >> $GITHUB_ENV
             echo "character1=pandu gadu and Ramana gadu" >> $GITHUB_ENV
@@ -32,3 +36,9 @@ jobs:
      - name: Printing favs stored as dynamic variables
        run: echo "one more fav movie is $movie1 and few more fav characters are $character1"
    
+ context-sample-1:
+  needs: context-sample
+  runs-on: ubuntu-latest
+  steps: 
+   - name: Printing the outputs store by the context-sample job
+     run: echo "Fav movie is ${{ needs.context-sample.favs.outputs.movie }}"
