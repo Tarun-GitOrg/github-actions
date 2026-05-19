@@ -12,4 +12,23 @@ jobs:
        run: |
              echo "Branch is ${{github.ref_name}}"
              echo "Name is $name and his fav actor is $actor and fav cricketer is $cricketer"
+     
+     - name: Favourite movie and characters
+       id: favs      #id is mandatory to store the outputs and use them in later steps
+       run: |
+         echo "movie=1-Nenokkadine" >> $GITHUB_OUTPUT
+         echo "character=seetaramaraju" >> $GITHUB_OUTPUT
+     
+     - name: Printing favourites stored as outputs
+       run: |
+         echo "$name favourite movie is ${{ steps.fav.outputs.movie }}"
+         echo "and favourite character is ${{ steps.fav.outputs.character }}"
+     
+     - name: Few more favourites 
+       run: echo "movie1=pokiri" >> $HITHUB_ENV
+            echo "character1=pandu gadu and Ramana gadu"
+
+     - name: Printing favs stored as dynamic variables
+       run:
+         echo "one more fav movie is $mvoie1 and few more fav characters are $chracter1"
    
