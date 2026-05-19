@@ -10,7 +10,6 @@ jobs:
    steps: 
      - name: Printing default variables provided by github
        run: |
-             echo "${{tojson(github)}}"
-             echo "${{github.ref_name}}"
+             echo "Branch is ${{github.ref_name}}"
              echo "Name is $name and his fav actor is $actor and fav cricketer is $cricketer"
    
