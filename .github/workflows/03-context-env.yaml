@@ -25,8 +25,8 @@ jobs:
          echo "and favourite character is ${{ steps.fav.outputs.character }}"
      
      - name: Few more favourites 
-       run: echo "movie1=pokiri" >> $HITHUB_ENV
-            echo "character1=pandu gadu and Ramana gadu"
+       run: echo "movie1=pokiri" >> $GITHUB_ENV
+            echo "character1=pandu gadu and Ramana gadu" >> $GITHUB_ENV
 
      - name: Printing favs stored as dynamic variables
        run:
