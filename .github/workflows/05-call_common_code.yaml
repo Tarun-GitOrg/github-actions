@@ -1,10 +1,8 @@
 name: caller_code
 on: [push]
- 
 jobs: 
  common_caller: 
-  runs-on: ubuntu-latest
-   - uses:  Tarunteja5182/workflows/blob/main/.github/workflows/common-workflow-code.yaml
+     uses:  Tarunteja5182/workflows/.github/workflows/common-workflow-code.yaml@main
      with:  
        project: 'roboshop'
        component: 'catalogue'
