@@ -1,0 +1,14 @@
+name: HelloWorld actions 
+description: My first action 
+inputs: 
+ who-to-greet: 
+   required: true
+   type: string 
+   default: 'world'
+
+runs: 
+ using: "composite"
+ steps: 
+  - name: greeting
+    run: echo "This is ${{ inputs.who-to-greet }} own customised action"
+    shell: bash 
