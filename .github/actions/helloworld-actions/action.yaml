@@ -2,8 +2,8 @@ name: HelloWorld actions
 description: My first action 
 inputs: 
  who-to-greet: 
-   required: true
-   type: string 
+   description: 'name to greet'
+   required: true 
    default: 'world'
 
 runs: 
